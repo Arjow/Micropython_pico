@@ -3,17 +3,18 @@ applications for pico and a script to run.
 
 ### To Do
 
-- [ ] clock  
-- [ ] dht_sensor  
+- [ ] wifi docstring  
+- [ ] create README file with documentation  
 - [ ] rewriting micropython_sonar  
-- [ ] Task title ~3d #type @name yyyy-mm-dd  
-- [ ] Sub-task or description  
+- [ ] sonar radar  
 
 ### in Progress
 
-- [ ] write docstring  
+- [ ] weather docstring  
 
 ### Completed Column ✓
 
 - [x] Completed task title  
+- [x] clock dockstring  
+- [x] dht_sensor docstring  
 

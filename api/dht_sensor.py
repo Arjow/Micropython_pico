@@ -1,3 +1,10 @@
+'''Module for DHT 11 sensor.
+
+Measure and read temperature and humidity from dht 11 sensor.
+Used microcontroler pico with micropyton.
+
+'''
+
 from machine import Pin, Timer
 import dht
 from time import localtime
@@ -26,7 +33,6 @@ class Dht_s:
     --------
     '''
     def __init__(self, pin, write_to_file=False):
-        
         self.dht_s = dht.DHT11(Pin(pin))
         self.write_to_file = write_to_file
 
@@ -75,7 +81,7 @@ class Dht_s:
         Mesuare Temperature and humidity and write value to file
         '''
         self.mesure()
-        if self.write_to_file=False:
+        if self.write_to_file:
             self.write_data_to_file()
 
     def continu_measure(self):
@@ -105,6 +111,6 @@ class Dht_s:
 if __name__ == '__main__':
     sensor = Dht_s(10)
     timer = Timer()
-    
+
     timer.init(mode=Timer.PERIODIC, period=1500, callback=sensor.t_mesure)
     
