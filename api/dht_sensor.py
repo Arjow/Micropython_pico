@@ -19,7 +19,9 @@ class Dht_s:
     ----------
     pin: int
         pin in of data pin of dht11 sensor
-    
+    write_to_file: bool
+        write to file a file
+
     methods
     ---------
     mesure
@@ -29,9 +31,8 @@ class Dht_s:
     continu_measure
     stop_measure
 
-    Returns:
-    --------
     '''
+
     def __init__(self, pin, write_to_file=False):
         self.dht_s = dht.DHT11(Pin(pin))
         self.write_to_file = write_to_file
@@ -56,7 +57,7 @@ class Dht_s:
 
     def m_t(self):
         """Get measured temperature.
-        
+
         Returns
         -------
         float:
@@ -66,7 +67,7 @@ class Dht_s:
 
     def m_h(self):
         """Get measured humidity.
-        
+
         Returns
         -------
         float:
@@ -88,24 +89,24 @@ class Dht_s:
         '''Set a timer to mesure temp and humidity periodic.'''
         self.timer = Timer()
         self.timer.init(mode=Timer.PERIODIC, period=1500,
-            callback=self._t_mesure)
+                        callback=self._t_mesure)
 
     def stop_measure(self):
         '''Stop continue_measure.'''
         self.timer.deinit()
-        
+
     def write_data_to_file(self, filename='file.txt'):
         """Write temperature and humidity to file
-        
+
         Parameter
         ---------
         filename: str
             name of file. Must end with '.txt'
-        
+
         """
         with open(filename, 'a') as file:
-            file.write(f't,{self.dht_s.temperature()}, h,{self.dht_s.humidity()}')
-
+            file.write(
+                f't,{self.dht_s.temperature()}, h,{self.dht_s.humidity()}')
 
 
 if __name__ == '__main__':
@@ -113,4 +114,3 @@ if __name__ == '__main__':
     timer = Timer()
 
     timer.init(mode=Timer.PERIODIC, period=1500, callback=sensor.t_mesure)
-    

@@ -10,11 +10,13 @@ applications for pico and a script to run.
 
 ### in Progress
 
+
+### check code?
+
+- [ ] dht_sensor docstring  
 - [ ] weather docstring  
 
 ### Completed Column ✓
 
 - [x] Completed task title  
-- [x] clock dockstring  
-- [x] dht_sensor docstring  
 

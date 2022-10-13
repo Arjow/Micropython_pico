@@ -1,6 +1,11 @@
+'''Connect pico to wifi
+
+Module to use to connect the pico to the wifi.
+needed file secret/secret.py with login credentials
+'''
 import network
 from time import sleep
-from resources import secret
+from secret import secret
 
 ''' Some work arrounds for wifi
 # create instances
@@ -18,14 +23,14 @@ sta_if.isconnected()
 sta_if.ifconfig()
 '''
 
-
 wlan = network.WLAN(network.STA_IF)
+
 
 def do_connect(ssid=None, key=None, re=False):
     """Connect to wifi
 
     Ask for password and klatey, as they don't exist.
-    
+
     Parameters:
     -----------
     ssid str:
@@ -54,7 +59,7 @@ def do_connect(ssid=None, key=None, re=False):
         wlan.connect(ssid, key)
         sleep(3)
     else:
-        raise('error with connect to wifi')
+        raise ('error with connect to wifi')
     print('wlan is connected?', wlan.isconnected())
     return wlan.isconnected(), wlan.ifconfig()
 
@@ -62,21 +67,22 @@ def do_connect(ssid=None, key=None, re=False):
 def connect():
     '''connect to wifi
 
-    use secret.py to for login credentials
+    connect to wifi using the login credentials
+    of the secret/secret.py file.
     '''
     for login in secret.logincredits:
         print('try to connect to: ', login['ssid'])
         do_connect(
             ssid=login['ssid'],
             key=login['key']
-            )
+        )
         if wlan.isconnected():
             return wlan.ifconfig()
     print("Can't connect to wifi acces point")
     for ssids in wlan.scan():
         print('wifi accespoints:', ssids[0])
 
-print(__name__)
+
 if __name__ == '__main__':
     print(connect())
     fix_time()
