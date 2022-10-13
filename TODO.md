@@ -1,18 +1,19 @@
-# Project Name
-Project Description
+# Pico applications
+applications for pico and a script to run.
 
-### Column Name
-- [ ] write docstring
-  - [ ] clock
-  - [ ] dht_sensor
-  - [ ]
+### To Do
 
-- [ ] rewriting micropython_sonar
-  - [ ] 
-
+- [ ] clock  
+- [ ] dht_sensor  
+- [ ] rewriting micropython_sonar  
 - [ ] Task title ~3d #type @name yyyy-mm-dd  
-  - [ ] Sub-task or description  
+- [ ] Sub-task or description  
 
+### in Progress
+
+- [ ] write docstring  
 
 ### Completed Column ✓
+
 - [x] Completed task title  
+
